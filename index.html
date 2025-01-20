@@ -1,33 +1,64 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Azure Web App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine persönliche Webseite</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="https://francescopalazzo.blob.core.windows.net/data/Protrait1.jpg">
 </head>
 <body>
-    <h1>Hello, Azure!</h1>
-    <p>This is an Azure Web App running on a Linux App Service.</p>
-    <p>The current time is: <span id="current-time"></span></p>
+<!-- Header -->
+<header class="py-4">
+    <div class="container">
+        <h1 class="display-4">Willkommen auf meiner Azure WebApp</h1>
+    </div>
+</header>
 
-<!--    <script>-->
-<!--        // Fetch current time from the server-->
-<!--        fetch('/api/time')-->
-<!--           .then(response => response.json())-->
-<!--           .then(data => {-->
-<!--                document.getElementById('current-time').textContent = data.time;-->
-<!--            });-->
+<!-- Main Content -->
+<main class="container my-5">
+    <div class="row">
+        <!-- Begrüßung -->
+        <div class="col-12 mb-4">
+            <h2>Herzlich Willkommen!</h2>
+            <p class="lead">Das hier ist meine Azure WebApp Applikation, hier werden die Daten aus einem Blob Storage und SQL-Datenbank geholt.</p>
+        </div>
 
-<!--        // Update current time every second-->
-<!--        setInterval(() => {-->
-<!--            fetch('/api/time')-->
-<!--               .then(response => response.json())-->
-<!--               .then(data => {-->
-<!--                    document.getElementById('current-time').textContent = data.time;-->
-<!--                });-->
-<!--        }, 1000);-->
-<!--    </script>-->
+        <!-- Bild und Tabelle nebeneinander -->
+        <div class="col-md-4 mb-4">
+            <img src="https://francescopalazzo.blob.core.windows.net/data/Protrait1.jpg" alt="Porträt" class="img-fluid rounded shadow">
+        </div>
+
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>E-Mail</th>
+                    <th>Telefon</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Max Mustermann</td>
+                    <td>max@beispiel.de</td>
+                    <td>+49 123 456789</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Erika Musterfrau</td>
+                    <td>erika@beispiel.de</td>
+                    <td>+49 987 654321</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

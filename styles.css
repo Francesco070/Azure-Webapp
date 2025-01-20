@@ -1,0 +1,93 @@
+:root {
+    /* Catppuccin Mocha Palette */
+    --rosewater: #f5e0dc;
+    --flamingo: #f2cdcd;
+    --pink: #f5c2e7;
+    --mauve: #cba6f7;
+    --red: #f38ba8;
+    --maroon: #eba0ac;
+    --peach: #fab387;
+    --yellow: #f9e2af;
+    --green: #a6e3a1;
+    --teal: #94e2d5;
+    --blue: #89b4fa;
+    --lavender: #b4befe;
+    --text: #cdd6f4;
+    --subtext1: #bac2de;
+    --subtext0: #a6adc8;
+    --overlay2: #9399b2;
+    --overlay1: #7f849c;
+    --overlay0: #6c7086;
+    --surface2: #585b70;
+    --surface1: #45475a;
+    --surface0: #313244;
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --crust: #11111b;
+}
+
+body {
+    background-color: var(--base);
+    color: var(--text);
+}
+
+header {
+    background-color: var(--crust);
+    border-bottom: 2px solid var(--surface0);
+}
+
+.lead {
+    color: var(--subtext1);
+}
+
+.table {
+    background-color: var(--mantle);
+    color: var(--text);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--surface0);
+}
+
+.table th,
+.table td {
+    border-bottom: 1px solid var(--surface0);
+    padding: 1rem;
+}
+
+.table thead th {
+    background-color: var(--surface0);
+    color: var(--mauve);
+    border-bottom: 2px solid var(--surface1);
+    font-weight: 600;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background-color: var(--crust);
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: var(--mantle);
+}
+
+.table tbody tr:hover {
+    background-color: var(--surface0);
+    color: var(--lavender);
+}
+
+.table td {
+    transition: all 0.2s ease-in-out;
+}
+
+.rounded {
+    border: 2px solid var(--surface0);
+}
+
+h1, h2 {
+    color: var(--mauve);
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem var(--crust) !important;
+}
