@@ -1,3 +1,18 @@
+<?php
+// Verbindungsaufbau zur Azure SQL-Datenbank
+try {
+    $conn = new PDO("sqlsrv:server = tcp:gbca1-fra-pal.database.windows.net,1433; Database = gbca1_sqldb_fra_pal", "fpa", "Checco12052007");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Fehler beim Verbinden zur SQL-Datenbank: " . $e->getMessage());
+}
+
+// Daten aus der Tabelle "Kunden" abrufen
+$sql = "SELECT ID, Name, Email, Telefonnummer FROM [dbo].[Kunden]";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$kunden = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -23,6 +38,7 @@
         <div class="col-12 mb-4">
             <h2>Herzlich Willkommen!</h2>
             <p class="lead">Das hier ist meine Azure WebApp Applikation, hier werden die Daten aus einem Blob Storage und SQL-Datenbank geholt.</p>
+            <p><a style="color: #cba6f7" href="https://github.com/Francesco070/Azure-Webapp">Link</a> zu GitHUB Repo</p>
         </div>
 
         <!-- Bild und Tabelle nebeneinander -->
@@ -41,18 +57,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Max Mustermann</td>
-                    <td>max@beispiel.de</td>
-                    <td>+49 123 456789</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Erika Musterfrau</td>
-                    <td>erika@beispiel.de</td>
-                    <td>+49 987 654321</td>
-                </tr>
+                <?php foreach ($kunden as $kunde): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($kunde['ID']) ?></td>
+                        <td><?= htmlspecialchars($kunde['Name']) ?></td>
+                        <td><?= htmlspecialchars($kunde['Email']) ?></td>
+                        <td><?= htmlspecialchars($kunde['Telefonnummer']) ?></td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
